@@ -11,8 +11,10 @@ export class Employee {
   })
   name: string;
 
+  // TypeORM 会自动在多的那一方添加外键,不需要通过 @JoinColumn 指定，
   @ManyToOne(() => Department, {
-    cascade: true,
+    onDelete: "CASCADE",
+    onUpdate: "CASCADE",
   })
   department: Department;
 }
