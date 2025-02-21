@@ -5,7 +5,6 @@ import {
   Injectable,
   UnauthorizedException,
 } from '@nestjs/common';
-import { Observable } from 'rxjs';
 import { UserService } from './user.service';
 import type { Request } from 'express';
 import { Reflector } from '@nestjs/core';

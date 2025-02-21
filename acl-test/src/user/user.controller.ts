@@ -14,12 +14,6 @@ import { LoginDto } from './dto/login.dto';
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
-  @Get('init')
-  async init() {
-    await this.userService.initData();
-    return 'done';
-  }
-
   @Post('login')
   async login(@Body() loginDto: LoginDto, @Session() session) {
     session.user = {
@@ -27,6 +21,12 @@ export class UserController {
     };
     await this.userService.login(loginDto);
     return 'success';
+  }
+
+  @Get('init')
+  async init() {
+    await this.userService.initData();
+    return 'done';
   }
 
   @Get()
